@@ -11,10 +11,10 @@ export default function AboutLayout({
 
       <ul>
         <li>
-          <Link href="/about/contacts">Contacts</Link>
+          <Link href={'/about/contacts'}>Contacts</Link>
         </li>
         <li>
-          <Link href="/about/team">Team</Link>
+          <Link href={'/about/team'}>Team</Link>
         </li>
       </ul>
       {children}
