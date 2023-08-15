@@ -1,7 +1,19 @@
-export default function Home() {
+import { getServerSession } from 'next-auth'
+import { options } from '@/app/api/auth/[...nextauth]/options'
+import Link from 'next/link'
+import { redirect } from 'next/navigation'
+
+export default async function Home() {
+  const session = await getServerSession(options)
+
+  if (!session) {
+    redirect('/api/auth/signin')
+  }
+
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <>
+      <h1 className="text-3xl font-bold underline">{session.user?.email}</h1>
+      <Link href="/api/auth/signout">Sign Out</Link>
+    </>
   )
 }
