@@ -34,4 +34,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/nextjs-364f3-firebase-adminsdk-y3qik-c49810b95d.json
+nextjs-364f3-firebase-adminsdk-y3qik-c49810b95d.json
