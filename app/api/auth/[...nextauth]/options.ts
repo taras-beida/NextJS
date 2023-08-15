@@ -13,7 +13,18 @@ export const options: NextAuthOptions = {
   session: {
     strategy: 'jwt',
   },
+  pages: {
+    signIn: '/sign-in',
+  },
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    }),
+    GithubProvider({
+      clientId: process.env.GITHUB_ID as string,
+      clientSecret: process.env.GITHUB_SECRET as string,
+    }),
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
@@ -39,14 +50,6 @@ export const options: NextAuthOptions = {
         }
         return null
       },
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-    }),
-    GithubProvider({
-      clientId: process.env.GITHUB_ID as string,
-      clientSecret: process.env.GITHUB_SECRET as string,
     }),
   ],
 }

@@ -2,6 +2,7 @@
 
 import { ChangeEvent, FormEvent, useState } from 'react'
 import signUp from '@/firebase/auth/signup'
+import Link from 'next/link'
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -91,6 +92,16 @@ export default function SignUp() {
               </button>
             </div>
           </form>
+
+          <p className="mt-4 text-center text-sm text-gray-500">
+            Already have an account??{' '}
+            <Link
+              href="/sign-in"
+              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            >
+              Sign In
+            </Link>
+          </p>
         </div>
       </div>
     </>
