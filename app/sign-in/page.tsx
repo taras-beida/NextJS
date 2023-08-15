@@ -1,7 +1,6 @@
 'use client'
 
 import { ChangeEvent, FormEvent, useState } from 'react'
-import signUp from '@/firebase/auth/signup'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
 
@@ -108,7 +107,7 @@ export default function SignIn() {
           <p className="mt-4 text-center text-sm text-gray-500">
             Not a member?{' '}
             <Link
-              href="/sign-up"
+              href={'/sign-up'}
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
               Sign Up
