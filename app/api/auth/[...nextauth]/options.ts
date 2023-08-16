@@ -8,6 +8,11 @@ import { cert } from 'firebase-admin/app'
 import { FirestoreAdapter } from '@auth/firebase-adapter'
 import signIn from '@/firebase/auth/signin'
 
+console.log(
+  '!!',
+  process.env.NEXT_PUBLIC_FIREBASE_PRIVATE_KEY?.replace(/\\n/gm, '\n')
+)
+
 export const options: NextAuthOptions = {
   // @ts-ignore
   adapter: FirestoreAdapter({
