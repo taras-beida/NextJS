@@ -5,6 +5,9 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import AuthProvider from '@/context/AuthProvider'
 
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -17,7 +20,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          <main>{children}</main>
+          <Header />
+          <main className="bg-white h-[calc(100vh-132px)] mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            {children}
+          </main>
+          <Footer />
         </AuthProvider>
       </body>
     </html>
