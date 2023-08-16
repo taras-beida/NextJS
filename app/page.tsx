@@ -14,7 +14,7 @@ export default async function Home() {
     <>
       <h1 className="text-3xl font-bold underline">{session.user?.email}</h1>
       <Link href={'/api/auth/signout'}>Sign Out</Link>
-      <h2>test</h2>
+      <h2>222</h2>
     </>
   )
 }
