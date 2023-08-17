@@ -22,10 +22,10 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} flex flex-col`}>
         <AuthProvider>
           <Header />
-          <main className="bg-white h-[calc(100vh-132px)] overflow-y-auto mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+          <main className="flex-1 w-full bg-white h-[calc(100vh-132px)] overflow-y-auto mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
             {children}
           </main>
           <Footer />

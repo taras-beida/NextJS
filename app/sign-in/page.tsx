@@ -25,7 +25,6 @@ export default function SignIn() {
       password,
       callbackUrl: '/',
     })
-    console.log('res', res)
   }
 
   const googleSignIn = async () => {
@@ -38,7 +37,7 @@ export default function SignIn() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 -mt-16 lg:px-8">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

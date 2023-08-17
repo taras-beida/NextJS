@@ -19,8 +19,7 @@ function classNames(...classes: any[]) {
 export default function Header() {
   const pathname = usePathname()
 
-  if (pathname === '/sign-im' || pathname === 'sign-out')
-    return <div className="h-16" />
+  if (pathname === '/sign-in' || pathname === '/sign-up') return null
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
