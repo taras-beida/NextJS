@@ -3,9 +3,13 @@
 import { Fragment } from 'react'
 import { usePathname } from 'next/navigation'
 import { signOut } from 'next-auth/react'
+import Image from 'next/image'
 
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+
+import NextWhiteImg from '../public/next-white.svg'
+import Link from 'next/link'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -41,17 +45,12 @@ export default function Header() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    className="h-5 w-auto"
-                    src="/next-white.svg"
-                    alt="Logo"
-                  />
+                  <Image src={NextWhiteImg} className="h-5 w-auto" alt="Logo" />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className={classNames(
@@ -65,7 +64,7 @@ export default function Header() {
                         }
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
