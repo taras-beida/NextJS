@@ -25,8 +25,8 @@ export default async function RootLayout({
       <body className={`${inter.className} flex flex-col`}>
         <AuthProvider>
           <Header />
-          <main className="w-full bg-white h-[calc(100vh-132px)] overflow-y-auto">
-            <div className="flex-1 mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+          <main className="flex-1 w-full bg-white h-[calc(100vh-132px)] overflow-y-auto">
+            <div className="h-full mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
               {children}
             </div>
           </main>
