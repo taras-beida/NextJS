@@ -3,6 +3,8 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import signUp from '@/firebase/auth/signup'
 import Link from 'next/link'
+import Image from 'next/image'
+import NextImg from '@/public/next.svg'
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -29,11 +31,10 @@ export default function SignUp() {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 -mt-16 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
+            src={NextImg}
             className="mx-auto h-10 w-auto"
-            src="/next.svg"
-            alt="Your Company"
+            alt="Taras Beida"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign up your account

@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="bg-gray-100 dark:bg-gray-700">
+    <div className="bg-gray-100 dark:bg-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 md:flex md:items-center md:justify-between">
         <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
           © 2023 <a href="https://flowbite.com/">Taras Beida</a>. All Rights

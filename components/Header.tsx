@@ -4,12 +4,12 @@ import { Fragment } from 'react'
 import { usePathname } from 'next/navigation'
 import { signOut } from 'next-auth/react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-import NextWhiteImg from '../public/next-white.svg'
-import Link from 'next/link'
+import NextWhiteImg from '@/public/next-white.svg'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -76,10 +76,11 @@ export default function Header() {
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
-                      {/*eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
+                        src="https://firebasestorage.googleapis.com/v0/b/nextjs-364f3.appspot.com/o/icons%2Fuser.jpg?alt=media&token=198a752b-a286-4ef2-8205-951dcf16aec0"
+                        width={60}
+                        height={60}
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt=""
                       />
                     </Menu.Button>
