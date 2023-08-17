@@ -2,6 +2,7 @@
 
 import { Fragment } from 'react'
 import { usePathname } from 'next/navigation'
+import { signOut } from 'next-auth/react'
 
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -17,6 +18,9 @@ function classNames(...classes: any[]) {
 
 export default function Header() {
   const pathname = usePathname()
+
+  if (pathname === '/sign-im' || pathname === 'sign-out')
+    return <div className="h-16" />
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -120,15 +124,15 @@ export default function Header() {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <span
+                            onClick={async () => await signOut()}
                             className={classNames(
                               active ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700'
+                              'block px-4 py-2 text-sm text-gray-700 cursor-pointer'
                             )}
                           >
                             Sign out
-                          </a>
+                          </span>
                         )}
                       </Menu.Item>
                     </Menu.Items>
