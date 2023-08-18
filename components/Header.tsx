@@ -12,8 +12,9 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import NextWhiteImg from '@/public/next-white.svg'
 
 const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'About', href: '/about', current: false },
+  { name: 'Home', href: '/' },
+  { name: 'Products', href: '/products' },
+  { name: 'About', href: '/about' },
 ]
 
 function classNames(...classes: any[]) {

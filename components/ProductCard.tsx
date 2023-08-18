@@ -21,10 +21,17 @@ const ProductCard: FC<Props> = ({ product }) => {
           className="h-full w-full object-cover object-center group-hover:opacity-75"
         />
       </div>
-      <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-      <p className="mt-1 text-lg font-medium text-gray-900">
-        ${new Intl.NumberFormat().format(product.price)}
-      </p>
+      <div className="flex justify-between items-center">
+        <div>
+          <h3 className="mt-2 text-sm text-gray-700">{product.name}</h3>
+          <p className="mt-1 text-lg font-medium text-gray-900">
+            ${new Intl.NumberFormat().format(product.price)}
+          </p>
+        </div>
+        <button className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+          Buy
+        </button>
+      </div>
     </Link>
   )
 }
