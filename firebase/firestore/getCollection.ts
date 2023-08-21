@@ -1,14 +1,26 @@
 import { db } from '../config'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, or, query, where } from 'firebase/firestore'
 
-export default async function getCollection(collectionName: string) {
-  let collectionRef = collection(db, collectionName)
+export default async function z2getCollection(
+  collectionName: string,
+  search: string = ''
+) {
+  const collectionRef = collection(db, collectionName)
+
+  let q = query(collectionRef)
+
+  if (search.length) {
+    q = query(
+      collectionRef,
+      or(where('name', '==', search), where('lowercaseName', '==', search))
+    )
+  }
 
   let result = null
   let error = null
 
   try {
-    result = await getDocs(collectionRef)
+    result = await getDocs(q)
   } catch (e) {
     error = e
   }

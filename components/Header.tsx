@@ -2,7 +2,7 @@
 
 import { Fragment } from 'react'
 import { usePathname } from 'next/navigation'
-import { signOut } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -23,6 +23,7 @@ function classNames(...classes: any[]) {
 
 export default function Header() {
   const pathname = usePathname()
+  const { data: session } = useSession()
 
   if (pathname === '/sign-in' || pathname === '/sign-up') return null
 
@@ -78,7 +79,10 @@ export default function Header() {
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <Image
-                        src="https://firebasestorage.googleapis.com/v0/b/nextjs-364f3.appspot.com/o/icons%2Fuser.jpg?alt=media&token=198a752b-a286-4ef2-8205-951dcf16aec0"
+                        src={
+                          session?.user?.image ||
+                          'https://firebasestorage.googleapis.com/v0/b/nextjs-364f3.appspot.com/o/icons%2Fuser.jpg?alt=media&token=198a752b-a286-4ef2-8205-951dcf16aec0'
+                        }
                         width={60}
                         height={60}
                         className="h-8 w-8 rounded-full"

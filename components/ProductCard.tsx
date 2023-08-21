@@ -11,7 +11,7 @@ type Props = {
 
 const ProductCard: FC<Props> = ({ product }) => {
   return (
-    <Link href={'#'} className="group">
+    <Link href={`/products/${product.id}`} className="group">
       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
         <Image
           src={product.image}

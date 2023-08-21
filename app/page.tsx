@@ -41,8 +41,8 @@ export default async function Home() {
             <Image
               src="https://firebasestorage.googleapis.com/v0/b/nextjs-364f3.appspot.com/o/other%2Fprofile.JPG?alt=media&token=b22fcac1-fa1c-4148-b612-6320b3b6f921"
               className="mx-auto h-10 w-10 rounded-full"
-              width={60}
-              height={60}
+              width={40}
+              height={40}
               alt="Taras Beida"
             />
             <div className="mt-4 flex items-center justify-center space-x-3 text-base">

@@ -8,6 +8,12 @@ const nextConfig = {
         port: '',
         pathname: '/v0/b/nextjs-364f3.appspot.com/o/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '',
+        pathname: '/u/**',
+      },
     ],
   },
 }
