@@ -1,9 +1,20 @@
 import { db } from '../config'
-import { collection, getDocs, or, query, where } from 'firebase/firestore'
+import {
+  collection,
+  getDocs,
+  or,
+  orderBy,
+  query,
+  where,
+} from 'firebase/firestore'
 
 export default async function z2getCollection(
   collectionName: string,
-  search: string = ''
+  search: string = '',
+  sorting?: {
+    sortBy: string
+    sortOrder: 'asc' | 'desc'
+  }
 ) {
   const collectionRef = collection(db, collectionName)
 
@@ -11,9 +22,13 @@ export default async function z2getCollection(
 
   if (search.length) {
     q = query(
-      collectionRef,
+      q,
       or(where('name', '==', search), where('lowercaseName', '==', search))
     )
+  }
+
+  if (sorting && sorting.sortBy.length) {
+    q = query(q, orderBy(sorting.sortBy, sorting.sortOrder))
   }
 
   let result = null

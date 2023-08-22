@@ -1,13 +1,21 @@
 'use client'
 
-import { ChangeEvent, KeyboardEvent, useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { ChangeEvent, KeyboardEvent, useCallback, useState } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { createQuery } from '@/utils/query'
 
 const Search = () => {
+  const pathname = usePathname()
   const searchParams = useSearchParams()
   const router = useRouter()
 
   const [search, setSearch] = useState(searchParams.get('search') || '')
+
+  const createQueryString = useCallback(
+    (newParams: { name: string; value: string }[]) =>
+      createQuery(newParams, searchParams),
+    [searchParams]
+  )
 
   const handleChanges = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
@@ -15,7 +23,14 @@ const Search = () => {
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      router.push(`/products?search=${search}`)
+      router.push(
+        `${pathname}?${createQueryString([
+          {
+            name: 'search',
+            value: search,
+          },
+        ])}`
+      )
     }
   }
 
