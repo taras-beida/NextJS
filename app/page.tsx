@@ -1,17 +1,8 @@
-import { getServerSession } from 'next-auth'
-import { options } from '@/app/api/auth/[...nextauth]/options'
-import { redirect } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import NextImg from '@/public/next.svg'
 
 export default async function Home() {
-  const session = await getServerSession(options)
-
-  if (!session) {
-    redirect('sign-in')
-  }
-
   return (
     <section className="h-full relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
