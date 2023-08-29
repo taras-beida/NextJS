@@ -11,6 +11,7 @@ import { createQuery } from '@/utils/query'
 const sortOptions = [
   { name: 'Price: Low to High', sortBy: 'price', sortOrder: 'asc' },
   { name: 'Price: High to Low', sortBy: 'price', sortOrder: 'desc' },
+  { name: 'Default', sortBy: '', sortOrder: '' },
 ]
 
 function classNames(...classes: string[]) {
@@ -64,13 +65,14 @@ const Sorting = () => {
                         value: option.sortOrder,
                       },
                     ])}`}
-                    // className={classNames(
-                    //   option.current
-                    //     ? 'font-medium text-gray-900'
-                    //     : 'text-gray-500',
-                    //   active ? 'bg-gray-100' : '',
-                    //   'block px-4 py-2 text-sm'
-                    // )}
+                    className={classNames(
+                      option.sortBy === searchParams.get('sort_by') &&
+                        option.sortOrder === searchParams.get('sort_order')
+                        ? 'font-medium text-gray-900'
+                        : 'text-gray-500',
+                      active ? 'bg-gray-100' : '',
+                      'block px-4 py-2 text-sm'
+                    )}
                   >
                     {option.name}
                   </Link>
